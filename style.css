@@ -1,0 +1,255 @@
+:root{
+  --bg-color: #ffffff;
+  --text-color: #121212;
+  --card-bg: #f4f4f4;
+  --green: #2d572c;
+}
+
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: "Roboto", sans-serif;
+    background-color: papayawhip;
+}
+
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--card-bg);
+}
+
+header .logo{
+    font-size: 3rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+header .logo:hover{
+    color: var(--hover-color);
+}
+
+header .logo .logo-icon{
+    display: inline-block;
+    position: relative;
+    left: 14px;
+    top: 1px;
+    background-position: center;
+    background-size: cover;
+    width: 64px;
+    height: 30px;
+
+}
+
+header nav {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    right: 0;
+    width: 100vw;
+    height: calc(100% - 100px);
+    top: 100px;
+    background-color: white;
+    
+}
+
+nav.active{
+    display: flex;
+}
+
+header nav ul{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    list-style: none;
+    padding: 12px;
+    gap: 12px;
+}
+adas
+header nav ul li a{
+    color: black;
+    font-size: 1.8rem;asdasd
+    /* gap: 12px; */
+}
+
+#burguerMenu{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-contenedor{
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+.iniciar-sesion, .registrarse{
+    padding: 12px 18px;
+    border-radius: 18px;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.iniciar-sesion{
+    background-color: transparent;
+    border: 2px solid black;
+}
+
+.registrarse{
+    background-color: var(--green);
+    color: white;
+}
+/* Main */
+main{
+    text-align: center;
+}
+
+
+main h1{
+    font-size: 5rem;
+    text-overflow: clip;
+    margin: 20px 40px;
+}
+main p{
+    font-size: 2.4rem;
+    margin: 0 40px;
+    text-overflow: clip;
+}
+
+.products-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+    height: fit-content;
+    width: 100%;
+    padding: 10px 30px;
+    align-items: center;
+    justify-content: center;
+    /* background-color: whitesmoke; */
+}
+.product-card{
+    display: flex;
+    flex-direction: row;
+    /* width: fit-content; */
+    margin: 12px 0;
+    border-radius: 18px;
+    border: rgba(133,133,133,0.75) solid 1px;
+    box-shadow: 1px 2px 9px 1px rgba(133,133,133,0.75);
+}
+.product-card img{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover ;
+    object-fit: cover;
+    width: 50%;
+    
+    border-radius: 18px 0 0 18px;
+}
+.product-card h4{
+    font-size: 1.6rem;
+    margin: 5px 0;
+}
+.product-card p{
+    text-align: start;
+    font-size: 1.5rem;
+}
+.price-discount--container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+}
+.price-discount--container p{
+    font-weight: bold;
+}
+.price-discount--container span{
+    padding: 8px 16px;
+    background-color: rgb(211, 148, 47);
+    border-radius: 8px;
+}
+
+.product-card button{
+    width: 80%;
+    padding: 8px 12px;
+    background-color: papayawhip;
+    border-radius: 18px;
+}
+
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 1.2rem;
+}
+footer a img{
+    width: 20px;
+    height: 20px;
+}
+@media(min-width: 1024px){
+    #burguerMenu{
+        display: none;
+    }
+    header nav{
+        display: flex;
+        position: inherit;
+        flex-direction: row;
+        height: fit-content;
+        width: fit-content;
+        align-items: center;
+        background-color: initial;
+    }
+    header nav ul{
+        height: fit-content;
+        width: fit-content;
+        flex-direction: row;
+    }
+    header nav ul li a{
+    
+    color: black;
+    font-size: 1.8rem;
+    text-decoration: none;
+    /* gap: 12px; */
+}
+    .products-container{
+        width: 90%;
+        height: fit-content;
+         /* 5% arriba/abajo + 5% izquierda/derecha = margen del 10% */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 12px;
+        /* aspect-ratio: 3 / 3;  */
+        /* mantiene las celdas rectangulares del mismo tamaño */
+    }
+}
+
+/* @media (prefers-color-scheme: dark) {
+    :root{
+    --bg-color--dark: #121212;
+    --text-color--dark: #e0e0e0;
+    --card-bg--dark: #1e1e1e;
+    }
+
+    body.dark-mode{
+        background-color: var(--bg-color--dark);
+    }
+
+
+} */
