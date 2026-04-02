@@ -7,28 +7,34 @@
 
 
 
-
 *{
+    /*"Reinicio de los estilos": Se reinicia el padding y el margin a 0 para facilitar la maquetación y no tener los valores predeterminados del navegador.*/
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    /* box-sizing: border-box en CSS sirve para que el padding (relleno) y el border (borde) de un elemento se incluyan dentro de su ancho (width) y alto (height) totales, en lugar de sumarse a ellos. */
 }
 
 html{
     font-size: 62.5%;
+    /* Reiniciar el tamaño de la fuente del proyecto a 62.5% nos permitirá trabajar de manera mas sencilla con la medida relativa REM(Root Em). Es ideal para accesibilidad y diseño responsivo, ya que si el usuario ajusta el tamaño de fuente del navegador, todo el sitio se escala proporcionalmente. Por defecto el navegador trae 16px como medida de fuente. Al setear su tamaño de fuente a 62.5%, esto nos facilitará hacer que "1REM = 10px".*/
     font-family: "Roboto", sans-serif;
-    background-color: papayawhip;
 }
 
-
-
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: papayawhip;
+}
 header{
     display: flex;
+    /* Display: flex; Convierte al elemento en un contenedor flexible, facilitando la alineación de sus hijos. */
     justify-content: space-between;
     align-items: center;
     height: 100px;
     padding: 0 20px;
-    border-bottom: 1px solid var(--card-bg);
+    border-bottom: 1px solid black;
 }
 
 header .logo{
@@ -57,9 +63,10 @@ header nav {
     display: none;
     position: absolute;
     flex-direction: column;
+    justify-content: space-between;
     right: 0;
-    width: 100vw;
-    height: calc(100% - 100px);
+    width: 70vw;
+    height: calc(100vh - 100px);
     top: 100px;
     background-color: white;
     
@@ -77,13 +84,18 @@ header nav ul{
     padding: 12px;
     gap: 12px;
 }
-adas
+
 header nav ul li a{
     color: black;
-    font-size: 1.8rem;asdasd
+    font-size: 1.8rem;
+    text-decoration: none;
     /* gap: 12px; */
+    transition: 0.2s;
 }
-
+header nav ul li a:hover{
+    text-decoration: underline;
+    font-weight: bold;
+}
 #burguerMenu{
     background-color: transparent;
     border: none;
@@ -103,6 +115,7 @@ header nav ul li a{
     border: none;
     font-size: 1.5rem;
     font-weight: bold;
+    cursor: pointer;
 }
 .iniciar-sesion{
     background-color: transparent;
@@ -133,7 +146,7 @@ main p{
 .products-container{
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    margin: 0 auto 20px;
     text-align: center;
     height: fit-content;
     width: 100%;
@@ -141,6 +154,8 @@ main p{
     align-items: center;
     justify-content: center;
     /* background-color: whitesmoke; */
+    flex: 1;
+    
 }
 .product-card{
     display: flex;
@@ -150,6 +165,7 @@ main p{
     border-radius: 18px;
     border: rgba(133,133,133,0.75) solid 1px;
     box-shadow: 1px 2px 9px 1px rgba(133,133,133,0.75);
+    cursor: pointer;
 }
 .product-card img{
     background-position: center;
@@ -157,16 +173,22 @@ main p{
     background-size: cover ;
     object-fit: cover;
     width: 50%;
-    
+    aspect-ratio: 16 / 9;
     border-radius: 18px 0 0 18px;
+}
+.product-card--info{
+    flex-direction: column;
+    gap: 20px;
 }
 .product-card h4{
     font-size: 1.6rem;
     margin: 5px 0;
+    flex: 1;
 }
 .product-card p{
     text-align: start;
     font-size: 1.5rem;
+    flex: 2;
 }
 .price-discount--container {
     display: flex;
@@ -190,17 +212,22 @@ main p{
     padding: 8px 12px;
     background-color: papayawhip;
     border-radius: 18px;
+    flex: 4;
+    position: relative;
+    bottom: 0;
 }
 
 footer{
     display: flex;
+    width: 100%;
+    align-items: end;
     flex-direction: row;
     justify-content: space-around;
     font-size: 1.2rem;
 }
 footer a img{
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
 }
 @media(min-width: 1024px){
     #burguerMenu{
@@ -233,10 +260,15 @@ footer a img{
          /* 5% arriba/abajo + 5% izquierda/derecha = margen del 10% */
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-rows: auto;
         gap: 12px;
         /* aspect-ratio: 3 / 3;  */
         /* mantiene las celdas rectangulares del mismo tamaño */
+    }
+    footer{
+        position: sticky;
+        bottom: 0;
+        flex: 2;
     }
 }
 
